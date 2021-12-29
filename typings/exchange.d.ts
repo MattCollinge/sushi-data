@@ -226,7 +226,8 @@ export function pairs24h({ block, timestamp, max }?: {
     max?: number;
 }): Promise<(Pair & Pair24h)[]>;
 
-export function observePairs(): {
+export function observePairs({exchangeChain}): {
+    exchangeChain: string;
     subscribe({ next, error, complete }: {
         next(data: Pair): any;
         error?(error: any): any;

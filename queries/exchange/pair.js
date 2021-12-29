@@ -192,7 +192,9 @@ module.exports = {
         return pairs.callback24h(results, results24ago, results48ago, ethPriceUSD, ethPriceUSD24ago);
     },
 
-    observePairs() {
+    observePairs({exchangeChain = undefined}) {
+        if(!exchangeChain) { throw new Error("sushi-data: exchangeChain undefined"); }
+        
         const query = gql`
             subscription {
                 pairs(first: 1000, orderBy: reserveUSD, orderDirection: desc) {
@@ -200,7 +202,21 @@ module.exports = {
                 }
         }`;
 
-        const client = new SubscriptionClient(graphWSEndpoints.exchange, { reconnect: true, }, ws,);
+        var client = null
+        switch(exchangeChain){
+            case "ETH": {
+                    client = new SubscriptionClient(graphWSEndpoints.exchange, { reconnect: true, }, ws,);
+                }break;
+            case "FTM": {
+                    client = new SubscriptionClient(graphWSEndpoints.exchange_ftm, { reconnect: true, }, ws,);
+                }break;
+            case "AVAX":{
+                    client = new SubscriptionClient(graphWSEndpoints.exchange_avax, { reconnect: true, }, ws,);
+                }break;
+            default: {
+                    client = new SubscriptionClient(graphWSEndpoints.exchange, { reconnect: true, }, ws,);
+                }break;
+        }
         const observable = client.request({ query });
 
         return {

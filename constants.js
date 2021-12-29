@@ -13,6 +13,8 @@ module.exports = {
     graphWSEndpoints: {
         bar: 'wss://api.thegraph.com/subgraphs/name/sushiswap/sushi-bar',
         exchange: 'wss://api.thegraph.com/subgraphs/name/sushiswap/exchange',
+        exchange_ftm: 'wss://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange',
+        exchange_avax: 'wss://api.thegraph.com/subgraphs/name/sushiswap/avalanche-exchange',
         blocklytics: 'wss://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
     },
 
