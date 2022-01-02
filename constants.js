@@ -15,6 +15,7 @@ module.exports = {
         exchange: 'wss://api.thegraph.com/subgraphs/name/sushiswap/exchange',
         exchange_ftm: 'wss://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange',
         exchange_avax: 'wss://api.thegraph.com/subgraphs/name/sushiswap/avalanche-exchange',
+        exchange_spooky_ftm: 'wss://api.thegraph.com/subgraphs/name/eerieeight/spookyswap',
         blocklytics: 'wss://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
     },
 

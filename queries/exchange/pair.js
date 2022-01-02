@@ -210,6 +210,9 @@ module.exports = {
             case "FTM": {
                     client = new SubscriptionClient(graphWSEndpoints.exchange_ftm, { reconnect: true, }, ws,);
                 }break;
+            case "Spooky_FTM":{
+                    client = new SubscriptionClient(graphWSEndpoints.exchange_spooky_ftm, { reconnect: true, }, ws,);
+            }break;
             case "AVAX":{
                     client = new SubscriptionClient(graphWSEndpoints.exchange_avax, { reconnect: true, }, ws,);
                 }break;
